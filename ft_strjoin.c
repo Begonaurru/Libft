@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Beurruel <beurruel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 20:54:27 by Beurruel          #+#    #+#             */
-/*   Updated: 2022/10/18 20:55:02 by Beurruel         ###   ########.fr       */
+/*   Created: 2022/11/07 11:57:04 by Beurruel          #+#    #+#             */
+/*   Updated: 2022/11/07 12:52:26 by Beurruel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const	char *str)
-
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	tam;
+	char	*str;
+	size_t	s1_len;
+	size_t	s2_len;
 
-	tam = 0;
-	while (*str++)
-			tam++;
-	return (tam);
+	s1_len = ft_strlen(s1);
+	s2_len = ft_strlen(s2);
+	str = malloc((s1_len + s2_len + 1) * sizeof(char));
+	if (str == 0)
+		return (0);
+	ft_strlcpy(str, s1, s1_len + 1);
+	ft_strlcat(str, s2, s1_len + s2_len + 1);
+	return (str);
 }
