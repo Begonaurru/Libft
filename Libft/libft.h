@@ -6,7 +6,7 @@
 /*   By: Beurruel <beurruel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 21:18:25 by Beurruel          #+#    #+#             */
-/*   Updated: 2022/11/07 12:10:05 by Beurruel         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:58:58 by Beurruel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,11 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-char	*ft_strtrim(const char *s1, char const *set);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strtrim(const char *s1, char const *set);
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 
 #endif

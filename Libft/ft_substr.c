@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Beurruel <beurruel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 10:57:33 by Beurruel          #+#    #+#             */
-/*   Updated: 2022/11/07 18:19:33 by Beurruel         ###   ########.fr       */
+/*   Created: 2022/11/07 17:53:49 by Beurruel          #+#    #+#             */
+/*   Updated: 2022/11/07 18:12:42 by Beurruel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "libft.h"
 
-char	*ft_strtrim(const char *s1, char const *set)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	len;
+	char	*end;
 
-	if (s1 == 0 || set == 0)
-		return (0);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len && ft_strchr(set, s1[len]))
-		len--;
-	return (ft_substr(s1, 0, len + 1));
+	if (!s)
+		return (NULL);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (ft_strlen(s) < len)
+		len = ft_strlen(s);
+	end = (char *)malloc(sizeof(char) * len + 1);
+	if (!end)
+		return (NULL);
+	ft_strlcpy(end, &s[start], len + 1);
+	return (end);
 }
